@@ -33,13 +33,22 @@
     <ImageView
             android:layout_width="70dp"
             android:layout_height="70dp" app:srcCompat="@drawable/ic_sunny"
-            tools:layout_editor_absoluteY="227dp" tools:layout_editor_absoluteX="42dp" android:id="@+id/sunnyImage"/>
+            android:id="@+id/sunnyImage"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintEnd_toStartOf="@+id/rainnyImage" app:layout_constraintTop_toTopOf="@+id/rainnyImage"
+    />
     <ImageView
             android:layout_width="70dp"
             android:layout_height="70dp" app:srcCompat="@drawable/ic_umbrellas"
-            tools:layout_editor_absoluteY="227dp" tools:layout_editor_absoluteX="141dp" android:id="@+id/rainnyImage"/>
+            android:id="@+id/rainnyImage"
+            app:layout_constraintStart_toEndOf="@+id/sunnyImage" app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintEnd_toStartOf="@+id/coldImage"
+            android:layout_marginTop="24dp" app:layout_constraintTop_toBottomOf="@+id/button"/>
     <ImageView
             android:layout_width="70dp"
             android:layout_height="70dp" app:srcCompat="@drawable/ic_temperature_2"
-            tools:layout_editor_absoluteY="227dp" tools:layout_editor_absoluteX="254dp" android:id="@+id/coldImage"/>
+            android:id="@+id/coldImage"
+            app:layout_constraintStart_toEndOf="@+id/rainnyImage" app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="@+id/rainnyImage"
+    />
 </android.support.constraint.ConstraintLayout>
