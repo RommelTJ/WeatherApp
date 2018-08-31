@@ -30,4 +30,16 @@
             android:id="@+id/button" android:layout_marginTop="16dp"
             app:layout_constraintTop_toBottomOf="@+id/editText" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
+    <ImageView
+            android:layout_width="70dp"
+            android:layout_height="70dp" app:srcCompat="@drawable/ic_sunny"
+            tools:layout_editor_absoluteY="227dp" tools:layout_editor_absoluteX="42dp" android:id="@+id/sunnyImage"/>
+    <ImageView
+            android:layout_width="70dp"
+            android:layout_height="70dp" app:srcCompat="@drawable/ic_umbrellas"
+            tools:layout_editor_absoluteY="227dp" tools:layout_editor_absoluteX="141dp" android:id="@+id/rainnyImage"/>
+    <ImageView
+            android:layout_width="70dp"
+            android:layout_height="70dp" app:srcCompat="@drawable/ic_temperature_2"
+            tools:layout_editor_absoluteY="227dp" tools:layout_editor_absoluteX="254dp" android:id="@+id/coldImage"/>
 </android.support.constraint.ConstraintLayout>
