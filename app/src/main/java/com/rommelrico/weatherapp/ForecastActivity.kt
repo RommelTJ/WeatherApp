@@ -13,7 +13,7 @@ class ForecastActivity : AppCompatActivity() {
 
         var listView = findViewById<ListView>(R.id.forecastListView)!!
 
-        var randomThings = listOf("Hello", "How are you?", "I like cheese")
+        var randomThings = listOf("Hello", "How are you?", "I like cheese", "Hello", "How are you?", "I like cheese", "Hello", "How are you?", "I like cheese", "Hello", "How are you?", "I like cheese", "Hello", "How are you?", "I like cheese", "Hello", "How are you?", "I like cheese", "Hello", "How are you?", "I like cheese")
 
         var adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, randomThings)
         listView.adapter = adapter
