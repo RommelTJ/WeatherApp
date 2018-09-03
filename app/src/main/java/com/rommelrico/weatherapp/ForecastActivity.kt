@@ -31,7 +31,9 @@ class ForecastActivity : AppCompatActivity() {
 
             override fun onResponse(call: Call<List<Forecast>>, response: Response<List<Forecast>>) {
                 println("Got response")
-                println(response?.body())
+                for (forecast in response.body()!!) {
+                    println("High: ${forecast.high}, Low: ${forecast.low}")
+                }
             }
 
         }
