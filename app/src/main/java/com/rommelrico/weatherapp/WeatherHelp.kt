@@ -6,14 +6,18 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 
+// WeatherAPI
 interface WeatherAPI {
 
     @GET("bins/r8vzg")
     fun getForecast(): Call<List<Forecast>>
-}
 
+} // end WeatherAPI
+
+// Forecast class
 class Forecast(val high: String, val low: String)
 
+// WeatherRetriever class
 class WeatherRetriever {
     private val service: WeatherAPI
 
