@@ -9,7 +9,7 @@ import retrofit2.http.GET
 // WeatherAPI
 interface WeatherAPI {
 
-    @GET("bins/r8vzg")
+    @GET("yql?q=select * from weather.forecast where woeid in (select woeid from geo.places(1) where text%3D\"san diego%2C ca\")&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys")
     fun getForecast(): Call<WeatherQuery>
 
 } // end WeatherAPI
@@ -26,7 +26,7 @@ class WeatherRetriever {
 
     init {
         val retrofit = Retrofit.Builder()
-                .baseUrl("https://api.myjson.com/")
+                .baseUrl("https://query.yahooapis.com/v1/public/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
         this.service = retrofit.create(WeatherAPI::class.java)
