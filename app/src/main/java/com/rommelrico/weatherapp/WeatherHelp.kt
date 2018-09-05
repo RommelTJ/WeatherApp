@@ -10,15 +10,15 @@ import retrofit2.http.GET
 interface WeatherAPI {
 
     @GET("yql?q=select * from weather.forecast where woeid in (select woeid from geo.places(1) where text%3D\"san diego%2C ca\")&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys")
-    fun getForecast(): Call<WeatherQuery>
+    fun getForecast(): Call<Weather>
 
 } // end WeatherAPI
 
 // Forecast class
 class Forecast(val high: String, val low: String)
 
-// WeatherQuery class
-class WeatherQuery()
+// Weather class
+class Weather()
 
 // WeatherRetriever class
 class WeatherRetriever {
@@ -32,7 +32,7 @@ class WeatherRetriever {
         this.service = retrofit.create(WeatherAPI::class.java)
     }
 
-    fun getForecast(callback: Callback<WeatherQuery>) {
+    fun getForecast(callback: Callback<Weather>) {
         val call = service.getForecast()
         call.enqueue(callback)
     }
