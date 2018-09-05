@@ -23,17 +23,15 @@ class ForecastActivity : AppCompatActivity() {
 
         // Calling the WeatherRetriever
         var retriever = WeatherRetriever()
-        val callback = object: Callback<List<Forecast>> {
+        val callback = object: Callback<WeatherQuery> {
 
-            override fun onFailure(call: Call<List<Forecast>>, t: Throwable) {
+            override fun onFailure(call: Call<WeatherQuery>, t: Throwable) {
                 println("Failed response")
             }
 
-            override fun onResponse(call: Call<List<Forecast>>, response: Response<List<Forecast>>) {
+            override fun onResponse(call: Call<WeatherQuery>, response: Response<WeatherQuery>) {
                 println("Got response")
-                for (forecast in response.body()!!) {
-                    println("High: ${forecast.high}, Low: ${forecast.low}")
-                }
+                println(response.body())
             }
 
         }
