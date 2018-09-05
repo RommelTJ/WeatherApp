@@ -10,12 +10,15 @@ import retrofit2.http.GET
 interface WeatherAPI {
 
     @GET("bins/r8vzg")
-    fun getForecast(): Call<List<Forecast>>
+    fun getForecast(): Call<WeatherQuery>
 
 } // end WeatherAPI
 
 // Forecast class
 class Forecast(val high: String, val low: String)
+
+// WeatherQuery class
+class WeatherQuery()
 
 // WeatherRetriever class
 class WeatherRetriever {
