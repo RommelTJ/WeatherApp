@@ -17,8 +17,11 @@ interface WeatherAPI {
 // Forecast class
 class Forecast(val high: String, val low: String)
 
-// Weather class
-class Weather()
+// Weather model
+class Weather(val query: WeatherQuery)
+class WeatherQuery(val results: WeatherResults)
+class WeatherResults(val channel: WeatherChannel)
+class WeatherChannel(val title: String)
 
 // WeatherRetriever class
 class WeatherRetriever {
