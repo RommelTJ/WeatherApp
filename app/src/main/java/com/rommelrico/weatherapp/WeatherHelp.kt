@@ -21,7 +21,8 @@ class Forecast(val high: String, val low: String)
 class Weather(val query: WeatherQuery)
 class WeatherQuery(val results: WeatherResults)
 class WeatherResults(val channel: WeatherChannel)
-class WeatherChannel(val title: String)
+class WeatherChannel(val title: String, val item: WeatherItem)
+class WeatherItem()
 
 // WeatherRetriever class
 class WeatherRetriever {
