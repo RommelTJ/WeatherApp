@@ -14,13 +14,6 @@ class ForecastActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_forecast)
 
-        var listView = findViewById<ListView>(R.id.forecastListView)!!
-
-        var randomThings = listOf("Hello", "How are you?", "I like cheese", "Hello", "How are you?", "I like cheese", "Hello", "How are you?", "I like cheese", "Hello", "How are you?", "I like cheese", "Hello", "How are you?", "I like cheese", "Hello", "How are you?", "I like cheese", "Hello", "How are you?", "I like cheese")
-
-        var adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, randomThings)
-        listView.adapter = adapter
-
         // Calling the WeatherRetriever
         var retriever = WeatherRetriever()
         val callback = object: Callback<Weather> {
@@ -32,7 +25,12 @@ class ForecastActivity : AppCompatActivity() {
             override fun onResponse(call: Call<Weather>, response: Response<Weather>) {
                 println("Got response")
                 title = response.body()?.query?.results?.channel?.title
-                println(response.body()?.query?.results?.channel?.item?.forecast)
+
+                val forecasts = response.body()?.query?.results?.channel?.item?.forecast
+
+                var listView = findViewById<ListView>(R.id.forecastListView)!!
+                var adapter = ArrayAdapter(this@ForecastActivity, android.R.layout.simple_list_item_1, forecasts)
+                listView.adapter = adapter
             }
 
         }
