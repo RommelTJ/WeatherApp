@@ -39,7 +39,11 @@ class WeatherRetriever {
     }
 
     fun getForecast(searchTerm: String, callback: Callback<Weather>) {
-        val q = "select * from weather.forecast where woeid in (select woeid from geo.places(1) where text=\"$searchTerm\")"
+        var mySearchTerm = searchTerm
+        if (searchTerm == "") {
+            mySearchTerm = "San Diego, CA"
+        }
+        val q = "select * from weather.forecast where woeid in (select woeid from geo.places(1) where text=\"$mySearchTerm\")"
         val call = service.getForecast(q)
         call.enqueue(callback)
     }
