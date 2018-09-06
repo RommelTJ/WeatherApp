@@ -15,7 +15,6 @@ class ForecastActivity : AppCompatActivity() {
         setContentView(R.layout.activity_forecast)
 
         val searchTerm = intent?.extras?.getString("searchTerm")
-        println("searchTerm: $searchTerm")
 
         // Calling the WeatherRetriever
         var retriever = WeatherRetriever()
