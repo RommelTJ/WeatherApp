@@ -14,6 +14,8 @@ class MainActivity : AppCompatActivity() {
         var getForecastButton = findViewById<Button>(R.id.getForecastButton)
         getForecastButton.setOnClickListener {
             var moveIntent = Intent(this, ForecastActivity::class.java)
+            val searchEditText = findViewById<android.widget.EditText>(R.id.searchEditText)
+            moveIntent.putExtra("searchTerm", searchEditText.text)
             startActivity(moveIntent)
         }
     }
