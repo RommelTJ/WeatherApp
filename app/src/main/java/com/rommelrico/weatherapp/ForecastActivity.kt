@@ -14,6 +14,8 @@ class ForecastActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_forecast)
 
+        val searchTerm = intent?.extras?.getString("searchTerm")
+
         // Calling the WeatherRetriever
         var retriever = WeatherRetriever()
         val callback = object: Callback<Weather> {
@@ -40,6 +42,6 @@ class ForecastActivity : AppCompatActivity() {
             }
 
         }
-        retriever.getForecast(callback)
+        retriever.getForecast(searchTerm!!, callback)
     }
 }
