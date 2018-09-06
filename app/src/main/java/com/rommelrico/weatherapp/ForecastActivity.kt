@@ -27,9 +27,15 @@ class ForecastActivity : AppCompatActivity() {
                 title = response.body()?.query?.results?.channel?.title
 
                 val forecasts = response.body()?.query?.results?.channel?.item?.forecast
+                var forecastStrings = mutableListOf<String>()
+                if (forecasts != null) {
+                    for (forecast in forecasts) {
+                        forecastStrings.add("${forecast.date} - High: ${forecast.high} Low: ${forecast.low}")
+                    }
+                }
 
                 var listView = findViewById<ListView>(R.id.forecastListView)!!
-                var adapter = ArrayAdapter(this@ForecastActivity, android.R.layout.simple_list_item_1, forecasts)
+                var adapter = ArrayAdapter(this@ForecastActivity, android.R.layout.simple_list_item_1, forecastStrings)
                 listView.adapter = adapter
             }
 
