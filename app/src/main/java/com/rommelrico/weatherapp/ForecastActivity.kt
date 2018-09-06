@@ -42,6 +42,6 @@ class ForecastActivity : AppCompatActivity() {
             }
 
         }
-        retriever.getForecast(callback)
+        retriever.getForecast(searchTerm!!, callback)
     }
 }

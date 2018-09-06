@@ -37,7 +37,7 @@ class WeatherRetriever {
         this.service = retrofit.create(WeatherAPI::class.java)
     }
 
-    fun getForecast(callback: Callback<Weather>) {
+    fun getForecast(searchTerm: String, callback: Callback<Weather>) {
         val call = service.getForecast()
         call.enqueue(callback)
     }
