@@ -5,12 +5,13 @@ import retrofit2.Callback
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
+import retrofit2.http.Query
 
 // WeatherAPI
 interface WeatherAPI {
 
-    @GET("yql?q=select * from weather.forecast where woeid in (select woeid from geo.places(1) where text%3D\"san diego%2C ca\")&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys")
-    fun getForecast(): Call<Weather>
+    @GET("yql?&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys")
+    fun getForecast(@Query("q") q: String): Call<Weather>
 
 } // end WeatherAPI
 
@@ -38,7 +39,8 @@ class WeatherRetriever {
     }
 
     fun getForecast(searchTerm: String, callback: Callback<Weather>) {
-        val call = service.getForecast()
+        val q = "select * from weather.forecast where woeid in (select woeid from geo.places(1) where text=\"$searchTerm\")"
+        val call = service.getForecast(q)
         call.enqueue(callback)
     }
 
